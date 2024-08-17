@@ -1,0 +1,22 @@
+
+<?php
+$host= 'localhost';
+$usr =' root';
+$ passwd = 'root';
+$dbname = 'cluster';
+$db = new sqli($host,$usr,$psswd,$dbname);
+if($db->connect_error){
+	die("Connection Failed: ".$db->connect_error);
+}
+$f1 = $_POST['e1'];
+$f2 = $_POST['e2'];
+$f3 = $_POST['e3'];
+$insert = $db->query("insert into countries (col,col1,col2) values ($f1,$f2,$f3)");
+
+if($insert){
+echo "Thanks for your contribution";
+}
+else{
+echo "Something Went Wrong Try Again";
+}
+?>
